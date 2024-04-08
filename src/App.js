@@ -58,68 +58,74 @@ function App() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-light-grayish-cyan">
-      <div>
-        <img className="my-10" src={logo} alt="logo" />
+    <main className="bg-light-grayish-cyan">
+      <div className="flex items-center justify-center">
+        <img className="py-10" src={logo} alt="logo" />
       </div>
-      <div className="w-full rounded-t-[25px] bg-white p-8">
-        <p className="mb-2 text-base font-bold text-dark-grayish-cyan">Bill</p>
-        <Input
-          icon={dollarIcon}
-          value={billAmount}
-          handleChange={handleAmountChange}
-          placeholder={0}
-        />
-        <p className="mb-4 mt-9 text-base font-bold text-dark-grayish-cyan">
-          Select Tip %
-        </p>
-        <div className="grid grid-cols-2 gap-4">
-          <TipAmount
-            percentage={5}
-            handleClick={handleTipAmountChange}
-            tipPercentage={tipPercentage}
-          />
-          <TipAmount
-            percentage={10}
-            handleClick={handleTipAmountChange}
-            tipPercentage={tipPercentage}
-          />
-          <TipAmount
-            percentage={15}
-            handleClick={handleTipAmountChange}
-            tipPercentage={tipPercentage}
-          />
-          <TipAmount
-            percentage={25}
-            handleClick={handleTipAmountChange}
-            tipPercentage={tipPercentage}
-          />
-          <TipAmount
-            percentage={50}
-            handleClick={handleTipAmountChange}
-            tipPercentage={tipPercentage}
-          />
-          <Input
-            handleChange={handleCustomTipChange}
-            value={customTipPercentage}
-            placeholder={"Custom"}
+      <div className="flex min-h-screen flex-col items-center justify-center bg-white px-4 sm:m-auto  sm:bg-light-grayish-cyan">
+        <div className="bg-white sm:flex sm:max-h-[480px] sm:max-w-[920px] sm:flex-row sm:rounded-3xl">
+          <div className="w-full p-4 sm:w-1/2 sm:px-4 sm:py-10">
+            <p className="mb-2 text-base font-bold text-dark-grayish-cyan">
+              Bill
+            </p>
+            <Input
+              icon={dollarIcon}
+              value={billAmount}
+              handleChange={handleAmountChange}
+              placeholder={0}
+            />
+            <p className="mb-4 mt-9 text-base font-bold text-dark-grayish-cyan">
+              Select Tip %
+            </p>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-2">
+              <TipAmount
+                percentage={5}
+                handleClick={handleTipAmountChange}
+                tipPercentage={tipPercentage}
+              />
+              <TipAmount
+                percentage={10}
+                handleClick={handleTipAmountChange}
+                tipPercentage={tipPercentage}
+              />
+              <TipAmount
+                percentage={15}
+                handleClick={handleTipAmountChange}
+                tipPercentage={tipPercentage}
+              />
+              <TipAmount
+                percentage={25}
+                handleClick={handleTipAmountChange}
+                tipPercentage={tipPercentage}
+              />
+              <TipAmount
+                percentage={50}
+                handleClick={handleTipAmountChange}
+                tipPercentage={tipPercentage}
+              />
+              <Input
+                handleChange={handleCustomTipChange}
+                value={customTipPercentage}
+                placeholder={"Custom"}
+              />
+            </div>
+            <p className="mt-9 text-base font-bold text-dark-grayish-cyan">
+              Number of People
+            </p>
+            <Input
+              icon={personIcon}
+              value={numberOfPeople}
+              handleChange={handleNumberOfPeople}
+              placeholder={0}
+            />
+          </div>
+          <Results
+            tipAmountPerPerson={tipAmountPerPerson}
+            totalAmountPerPerson={totalAmountPerPerson}
+            disableResetButton={disableResetButton}
+            handleReset={handleReset}
           />
         </div>
-        <p className="mb-4 mt-9 text-base font-bold text-dark-grayish-cyan">
-          Number of People
-        </p>
-        <Input
-          icon={personIcon}
-          value={numberOfPeople}
-          handleChange={handleNumberOfPeople}
-          placeholder={0}
-        />
-        <Results
-          tipAmountPerPerson={tipAmountPerPerson}
-          totalAmountPerPerson={totalAmountPerPerson}
-          disableResetButton={disableResetButton}
-          handleReset={handleReset}
-        />
       </div>
     </main>
   );
